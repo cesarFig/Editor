@@ -1,11 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editor de Texto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #editor {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .toolbar {
+            margin-bottom: 10px;
+        }
+        .toolbar button, .toolbar select, .toolbar input {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        .word-count {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-    
+
+<h1>Editor de Texto</h1>
+
+<div class="toolbar">
+    <button onclick="formatText('bold')"><b>B</b></button>
+    <button onclick="formatText('italic')"><i>I</i></button>
+    <button onclick="formatText('underline')"><u>U</u></button>
+    <select onchange="changeFont(this.value)">
+        <option value="Arial">Arial</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Verdana">Verdana</option>
+    </select>
+    <input type="color" onchange="changeColor(this.value)">
+    <input type="text" id="searchInput" placeholder="Buscar...">
+    <button onclick="searchText()">Buscar</button>
+</div>
+
+<div id="editor" contenteditable="true"></div>
+
+<div class="word-count">Palabras: <span id="wordCount">0</span></div>
+
+<script>
+    function formatText(command) {
+        document.execCommand(command, false, null);
+        updateWordCount();
+    }
+
+    function changeFont(font) {
+        document.execCommand('fontName', false, font);
+    }
+
+    function changeColor(color) {
+        document.execCommand('foreColor', false, color);
+    }
+
+    function updateWordCount() {
+        const text = document.getElementById('editor').innerText;
+        const words = text.split(/\s+/).filter(word => word.length > 0);
+        document.getElementById('wordCount').textContent = words.length;
+    }
+
+    function searchText() {
+        const searchTerm = document.getElementById('searchInput').value;
+        const editorText = document.getElementById('editor').innerHTML;
+        const highlightedText = editorText.replace(new RegExp(searchTerm, 'gi'), match => `<span style="background-color: yellow;">${match}</span>`);
+        document.getElementById('editor').innerHTML = highlightedText;
+    }
+
+    document.getElementById('editor').addEventListener('input', updateWordCount);
+</script>
+
 </body>
 </html>
