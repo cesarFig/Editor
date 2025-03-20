@@ -7,15 +7,16 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-image: url("https://media.istockphoto.com/id/1220125097/es/vector/cartas-antecedentes-abstractos.jpg?s=612x612&w=0&k=20&c=muGYfU-DXRkmnqbqX9Hrd4tRN8qIU1sQcohGzgAfhS4=");
 }
 
 .container {
     width: 80%;
     max-width: 1200px;
-    background-color: #fff;
+    background-color: #fff7ed;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);;
 }
 
 h1 {
