@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.toolbar {
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.toolbar button, .toolbar select, .toolbar input {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    background-color: #2a7573;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.toolbar button:hover, .toolbar select:hover, .toolbar input:hover {
+    background-color: #47b4ca;
+}
+
+.toolbar select {
+    appearance: none;
+    padding-right: 30px;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.toolbar input[type="color"] {
+    padding: 4px;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+}
+
+.toolbar input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #333;
+}
+
+#editor {
+    width: 98%;
+    height: 300px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+}
+
+.word-count {
+    text-align: right;
+    font-size: 14px;
+    color: #666;
+}
+
+.toolbar input[type="color"] {
+    padding: 0;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background-color: transparent;
+    cursor: pointer; 
+    transition: border-color 0.3s ease; 
+}
+
+.toolbar input[type="color"]:hover {
+    border-color: #007bff
+}
+
+.toolbar input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+}
+
+.toolbar input[type="color"]::-moz-color-swatch {
+    border: none;
+    border-radius: 50%; 
+}
